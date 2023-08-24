@@ -3,6 +3,7 @@ import "./search-bar.css";
 import { Col, Form, FormGroup } from "reactstrap";
 import { BASE_URL } from "../utils/config";
 import {useNavigate} from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 
 const SearchBar = () => {
@@ -19,7 +20,12 @@ const SearchBar = () => {
         const maxGroupSize = maxGroupSizeRef.current.value
 
         if(location === "" || distance === "" || maxGroupSize === ""){
-            return alert("All fields are required!")
+            Swal.fire({
+                title: 'Missing Fields',
+                text: 'You need to fill all fields to search a tour',
+                icon: 'error',
+              });
+              return;
         }
 
         const res = await fetch(`${BASE_URL}/tours/search/getTourBySearch?city=${location}&distance=${distance}&maxGroupSize=${maxGroupSize}`)
