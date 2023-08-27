@@ -88,7 +88,7 @@ const Header = () => {
 
                             {
                                 user ? <>
-                                    <h6 className="mb-0">{user.username}</h6>
+                                    <h6 className="mb-0"> <i class="ri-user-follow-line"></i>  {user.username}</h6>
                                     <Button className="btn btn-dark" onClick={logout}>Logout</Button>
                                 </> : <>
                                     <Button className="btn secondary__btn">
