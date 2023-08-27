@@ -79,6 +79,9 @@ const TourDetails = () => {
                 icon: 'success',
                 timer: 3000, // Auto-close the popup after 3 seconds
                 showConfirmButton: false,
+              }).then(() => {
+                // Reload the page after the popup is closed
+                window.location.reload();
               });
             
         } catch (error) {
